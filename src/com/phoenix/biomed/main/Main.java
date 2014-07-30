@@ -15,10 +15,12 @@ public class Main {
     public static void main(String[] args) {
         String PCS = "treatment, possibleDrug, hasTarget, hasAccession, classifiedWith, symbol";
         
-        //For Naive Owl Reasoning
+        // For Naive Owl Reasoning
+        // Requirement: Data should be placed inside '/phoenix/biomed/input1'
         runNaiveOwlReasoning(PCS, args);
         
-        //For Efficient Owl Reasoning
+        // For Efficient Owl Reasoning
+        // Requirement: Data should be placed inside '/phoenix/biomed/iinput1'
         //runEfficientOwlReasoning(PCS, args);
     }
 
