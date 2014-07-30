@@ -16,10 +16,10 @@ public class Main {
         String PCS = "treatment, possibleDrug, hasTarget, hasAccession, classifiedWith, symbol";
         
         //For Naive Owl Reasoning
-        //runNaiveOwlReasoning(PCS, args);
+        runNaiveOwlReasoning(PCS, args);
         
         //For Efficient Owl Reasoning
-        runEfficientOwlReasoning(PCS, args);
+        //runEfficientOwlReasoning(PCS, args);
     }
 
     /**

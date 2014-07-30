@@ -5,8 +5,6 @@ import com.phoenix.biomed.common.PCS;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.FileSystem;
@@ -21,9 +19,9 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
-import org.apache.hadoop.util.ToolRunner;
-import com.phoenix.biomed.main.Main;
+
 /**
+ * Efficient OWL Reasoning Algorithm Implementation
  *
  * @author phoenix
  */
@@ -114,9 +112,9 @@ public class EfficientOwlReasoning extends Configured implements Tool {
         private String computeOPC(PCS pcs, int pid) {
             String opc = pcs.get(pid);
             if (pid % 2 == 1) {
-                opc = pcs.get(pid - 1) +"|"+ opc;
+                opc = pcs.get(pid - 1) + "|" + opc;
             } else {
-                opc += "|"+pcs.get(pid + 1);
+                opc += "|" + pcs.get(pid + 1);
             }
             return opc;
         }
