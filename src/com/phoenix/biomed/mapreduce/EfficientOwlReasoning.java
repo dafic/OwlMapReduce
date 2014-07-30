@@ -158,43 +158,4 @@ public class EfficientOwlReasoning extends Configured implements Tool {
         FileOutputFormat.setOutputPath(job, outputpath);
         return job.waitForCompletion(true) ? 1 : 0;
     }
-
-    public static void main(String[] args) {
-        String PCS = "treatment, possibleDrug, hasTarget, hasAccession, classifiedWith, symbol";
-
-        int maxLevel = 6;
-        try {
-            for (int level = 1; level < maxLevel && !isComplete(PCS); level++) {
-//                int pre1 = ToolRunner.run(new NaiveOwlReasoning(PCS, level), args);
-                int pre1 = ToolRunner.run(new EfficientOwlReasoning(PCS, level), args);
-                //update PCS
-                PCS = updatePCS(PCS);
-//                PCS = updatePCSII(PCS);
-                System.out.println("PCS:"+PCS);
-            }
-
-        } catch (Exception ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public static String updatePCS(String PCS) {
-        String[] split = PCS.split(",");
-        String newPCS = "";
-        if(split.length%2==0){
-            for(int i=0;i<split.length;i=i+2){
-                newPCS+=", "+split[i]+"|"+split[i+1].trim();
-            }
-        }else{
-            for(int i=0;i<split.length-1;i=i+2){
-                newPCS+=", "+split[i]+"|"+split[i+1].trim();
-            }
-            newPCS+=", "+split[split.length-1].trim();
-        }
-        return newPCS.substring(2);
-    }
-    
-    public static boolean isComplete(String PCS){
-        return !PCS.contains(",");
-    }
 }
