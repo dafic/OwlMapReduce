@@ -1,0 +1,8 @@
+Herb0, treatment, Disease0
+Disease0, possibleDrug, Drug0
+Drug0, hasTarget, Target0
+Target0, hasAccession, Protein0
+Protein0, classifiedWith, EntrezID
+EntrezID, symbol, Gene0
+Herb1, treatment, Disease0
+Target0, geneSequence, Sequence0
